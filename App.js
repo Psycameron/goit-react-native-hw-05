@@ -4,13 +4,17 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View } from "react-native";
 
-import { useFonts } from "expo-font";
-import * as SplashScreen from "expo-splash-screen";
-import { useEffect, useCallback, useState } from "react";
-
 import RegistrationScreen from "./Screens/auth/RegistrationScreen";
 import LoginScreen from "./Screens/auth/LoginScreen";
 import Home from "./Screens/main/Home";
+// import PostsScreen from "./Screens/main/PostsScreen";
+// import CreatePostsScreen from "./Screens/main/CreatePostsScreen";
+// import ProfileScreen from "./Screens/main/ProfileScreen";
+
+import { useFonts } from "expo-font";
+import * as SplashScreen from "expo-splash-screen";
+
+// SplashScreen.preventAutoHideAsync();
 
 const AuthStack = createStackNavigator();
 // const MainStack = createStackNavigator();
@@ -59,28 +63,21 @@ const AuthStack = createStackNavigator();
 // };
 
 export default function App() {
-  const [fontsLoaded] = useFonts({
-    "Roboto-Regular": require("./assets/fonts/Roboto-Regular.ttf"),
-    "Roboto-Medium": require("./assets/fonts/Roboto-Medium.ttf"),
-    "Roboto-Bold": require("./assets/fonts/Roboto-Bold.ttf"),
-  });
+  // const [fontsLoaded] = useFonts({
+  //   "Roboto-Regular": require("./assets/fonts/Roboto-Regular.ttf"),
+  //   "Roboto-Medium": require("./assets/fonts/Roboto-Medium.ttf"),
+  //   "Roboto-Bold": require("./assets/fonts/Roboto-Bold.ttf"),
+  // });
 
-  useEffect(() => {
-    async function prepare() {
-      await SplashScreen.preventAutoHideAsync();
-    }
-    prepare();
-  }, []);
+  // const onLayoutRootView = useCallback(async () => {
+  //   if (fontsLoaded) {
+  //     await SplashScreen.hideAsync();
+  //   }
+  // }, [fontsLoaded]);
 
-  const onLayoutRootView = useCallback(async () => {
-    if (fontsLoaded) {
-      await SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded]);
-
-  if (!fontsLoaded) {
-    return null;
-  }
+  // if (!fontsLoaded) {
+  //   return null;
+  // }
 
   return (
     <View style={styles.container}>

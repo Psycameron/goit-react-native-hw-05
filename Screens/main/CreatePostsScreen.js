@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#E8E8E8",
     height: 50,
-    fontFamily: "Roboto-Regular",
+    fontFamily: "Roboto",
     color: "#212121",
     fontSize: 16,
     lineHeight: 19,
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
     borderRadius: 100,
   },
   buttonCreateText: {
-    fontFamily: "Roboto-Regular",
+    fontFamily: "Roboto",
     fontSize: 16,
     lineHeight: 19,
     textAlign: "center",
@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
   photoText: {
     marginHorizontal: 16,
     marginTop: 8,
-    fontFamily: "Roboto-Regular",
+    fontFamily: "Roboto",
     fontSize: 16,
     lineHeight: 19,
     color: "#BDBDBD",
