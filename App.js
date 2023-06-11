@@ -1,4 +1,3 @@
-import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { StatusBar } from "expo-status-bar";
@@ -16,8 +15,7 @@ import * as SplashScreen from "expo-splash-screen";
 
 // SplashScreen.preventAutoHideAsync();
 
-const AuthStack = createStackNavigator();
-// const MainStack = createStackNavigator();
+import useRoute from "./router";
 
 // const useRoute = (isAuth) => {
 //   if (!isAuth) {
@@ -79,28 +77,11 @@ export default function App() {
   //   return null;
   // }
 
+  const routing = useRoute(isAuth);
+
   return (
-    <View style={styles.container}>
-      <StatusBar style="auto" />
-      <NavigationContainer>
-        <AuthStack.Navigator initialRouteName="Registration">
-          <AuthStack.Screen
-            name="Registration"
-            component={RegistrationScreen}
-            options={{ headerShown: false }}
-          />
-          <AuthStack.Screen
-            name="Login"
-            component={LoginScreen}
-            options={{ headerShown: false }}
-          />
-          <AuthStack.Screen
-            name="Home"
-            component={Home}
-            options={{ headerShown: false }}
-          />
-        </AuthStack.Navigator>
-      </NavigationContainer>
+    <View onLayout={onLayoutRootView} style={styles.container}>
+      <NavigationContainer>{routing}</NavigationContainer>
     </View>
   );
 }
@@ -108,6 +89,5 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
   },
 });
